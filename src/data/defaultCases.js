@@ -475,3 +475,21 @@ export const DEFAULT_CASES = [
     ]
   }
 ]
+
+// Helper to parse numerical price from item for budget filtering
+export function getPriceNumber(item) {
+  if (!item) return 0
+  if (typeof item.priceNum === 'number') return item.priceNum
+  if (item.rarity === 'gold' || !item.price || item.price.includes('0 VNĐ') || item.price.includes('0đ') || item.price.includes('Vô giá')) {
+    return 0
+  }
+  const matches = item.price.match(/\d+[\.\d]*/g)
+  if (matches && matches.length > 0) {
+    const numbers = matches.map(m => parseInt(m.replace(/\./g, ''), 10)).filter(n => !isNaN(n) && n > 0)
+    if (numbers.length > 0) {
+      return Math.min(...numbers)
+    }
+  }
+  return 50000
+}
+

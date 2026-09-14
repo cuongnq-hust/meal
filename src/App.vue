@@ -42,6 +42,12 @@
               <span class="text-[11px] sm:text-xs text-slate-400">
                 Gồm {{ activeCase.items.length }} món ăn
               </span>
+              <span
+                v-if="budgetLimit !== null"
+                class="text-[10px] font-mono font-bold px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+              >
+                Hợp túi tiền: {{ activeCaseFilteredItems.length }} món
+              </span>
             </div>
             <h1 class="font-display font-black text-lg sm:text-2xl lg:text-3xl text-white tracking-wide mt-1 truncate">
               {{ activeCase.name }}
@@ -67,12 +73,21 @@
         </div>
       </div>
 
+      <!-- Budget Filter Slider & Presets -->
+      <section class="w-full">
+        <BudgetFilter
+          :matchingCount="activeCaseFilteredItems.length"
+          :totalCount="activeCase.items.length"
+          @update-budget="val => budgetLimit = val"
+        />
+      </section>
+
       <!-- CS:GO Horizontal Case Roulette Spinner -->
       <section id="roulette-section" class="w-full">
         <CaseRoulette
           ref="rouletteRef"
-          :key="activeCase.id"
-          :currentCase="activeCase"
+          :key="`${activeCase.id}-${budgetLimit}`"
+          :currentCase="activeCaseWithBudget"
           :isAuthenticOdds="isAuthenticOdds"
           @item-won="handleItemWon"
         />
@@ -81,7 +96,8 @@
       <!-- Case Items Showcase Grid -->
       <section class="w-full">
         <CaseItemList
-          :items="activeCase.items"
+          :items="activeCaseFilteredItems"
+          :budgetLimit="budgetLimit"
           @inspect-item="handleInspectItem"
         />
       </section>
@@ -189,8 +205,9 @@ import CaseItemList from './components/CaseItemList.vue'
 import InspectModal from './components/InspectModal.vue'
 import CustomDishModal from './components/CustomDishModal.vue'
 import HistoryDrawer from './components/HistoryDrawer.vue'
+import BudgetFilter from './components/BudgetFilter.vue'
 
-import { DEFAULT_CASES, RARITIES } from './data/defaultCases.js'
+import { DEFAULT_CASES, RARITIES, getPriceNumber } from './data/defaultCases.js'
 import { useCaseSpinner } from './composables/useCaseSpinner.js'
 
 const { rollHistory, saveHistory, clearHistory } = useCaseSpinner()
@@ -202,6 +219,7 @@ const rouletteRef = ref(null)
 const cases = ref(JSON.parse(JSON.stringify(DEFAULT_CASES)))
 const activeCaseId = ref('office-lunch')
 const isAuthenticOdds = ref(true)
+const budgetLimit = ref(null) // null = unlimited
 
 // Modals state
 const showInspect = ref(false)
@@ -215,6 +233,25 @@ const activeCase = computed(() => {
   return cases.value.find(c => c.id === activeCaseId.value) || cases.value[0]
 })
 
+// Filter dishes matching the active budget
+const activeCaseFilteredItems = computed(() => {
+  if (budgetLimit.value === null) {
+    return activeCase.value.items
+  }
+  const filtered = activeCase.value.items.filter(item => {
+    const cost = getPriceNumber(item)
+    return cost <= budgetLimit.value
+  })
+  return filtered.length > 0 ? filtered : activeCase.value.items
+})
+
+const activeCaseWithBudget = computed(() => {
+  return {
+    ...activeCase.value,
+    items: activeCaseFilteredItems.value
+  }
+})
+
 const isRouletteSpinning = computed(() => {
   return rouletteRef.value?.isSpinning || false
 })
@@ -222,7 +259,7 @@ const isRouletteSpinning = computed(() => {
 // Rarity counts for active case
 const rarityCounts = computed(() => {
   const counts = {}
-  activeCase.value.items.forEach(item => {
+  activeCaseFilteredItems.value.forEach(item => {
     counts[item.rarity] = (counts[item.rarity] || 0) + 1
   })
   return counts

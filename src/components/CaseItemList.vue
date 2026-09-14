@@ -4,11 +4,21 @@
     <!-- Title and Rarity Legend -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 pb-3 sm:pb-4 border-b border-slate-800">
       <div>
-        <h3 class="font-display font-bold text-sm sm:text-lg text-slate-100 tracking-wide flex items-center gap-2">
-          <span>📦</span>
-          <span>DANH SÁCH MÓN TRONG HÒM</span>
-          <span class="text-xs font-mono font-normal text-slate-400">({{ filteredItems.length }} món)</span>
-        </h3>
+        <div class="flex items-center gap-2 flex-wrap">
+          <h3 class="font-display font-bold text-sm sm:text-lg text-slate-100 tracking-wide flex items-center gap-2">
+            <span>📦</span>
+            <span>DANH SÁCH MÓN TRONG HÒM</span>
+            <span class="text-xs font-mono font-normal text-slate-400">({{ filteredItems.length }} món)</span>
+          </h3>
+
+          <!-- Budget active indicator pill -->
+          <span
+            v-if="budgetLimit !== null"
+            class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+          >
+            Đang lọc: ≤ {{ formatCurrency(budgetLimit) }}
+          </span>
+        </div>
         <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Chạm vào từng món để xem thông số chi tiết</p>
       </div>
 
@@ -64,6 +74,10 @@ const props = defineProps({
   items: {
     type: Array,
     required: true
+  },
+  budgetLimit: {
+    type: Number,
+    default: null
   }
 })
 
@@ -79,6 +93,11 @@ const rarityOrder = {
   milspec: 3,
   industrial: 2,
   consumer: 1
+}
+
+function formatCurrency(val) {
+  if (!val) return '0đ'
+  return new Intl.NumberFormat('vi-VN').format(val) + 'đ'
 }
 
 const filteredItems = computed(() => {
