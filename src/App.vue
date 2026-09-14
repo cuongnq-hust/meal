@@ -96,9 +96,20 @@
           <span class="font-display font-semibold text-slate-400">CS:GO Food Unboxing Simulator</span>
           <span class="hidden sm:inline">— Giải quyết nỗi lo "Hôm nay ăn gì?"</span>
         </div>
-        <p class="text-slate-600 font-mono text-[11px]">
-          100% Miễn Phí • Web Audio API • CS:GO Deceleration Physics
-        </p>
+        <div class="flex items-center gap-3 text-[11px] font-mono">
+          <a
+            href="/docs.html"
+            target="_blank"
+            class="text-amber-400 hover:text-amber-300 underline flex items-center gap-1"
+            title="Xem tài liệu đặc tả nghiệp vụ & thuật toán"
+          >
+            <span>📜 Tài liệu Nghiệp vụ & Kỹ thuật</span>
+          </a>
+          <span class="text-slate-600 hidden sm:inline">•</span>
+          <p class="text-slate-600 hidden sm:inline">
+            100% Miễn Phí • Web Audio API • CS:GO Physics
+          </p>
+        </div>
       </div>
     </footer>
 

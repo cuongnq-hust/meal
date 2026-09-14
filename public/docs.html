@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tài Liệu Nghiệp Vụ & Thiết Kế Hệ Thống - Hôm Nay Ăn Gì? (CS:GO Case Opening)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Chakra Petch', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            csgo: {
+              bg: '#0a0d14',
+              surface: '#111622',
+              card: '#161c2b',
+              border: '#242e42',
+              gold: '#ffd700',
+              covert: '#eb4b4b',
+              classified: '#d32ce6',
+              restricted: '#8847ff',
+              milspec: '#4b69ff',
+              industrial: '#5e98d9',
+              consumer: '#b0c3d9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, .font-display { font-family: 'Chakra Petch', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0d14; }
+    ::-webkit-scrollbar-thumb { background: #263248; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+  </style>
+</head>
+<body class="bg-csgo-bg text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-csgo-surface/90 backdrop-blur-md border-b border-csgo-border px-4 lg:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <span class="text-2xl p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30">🍜</span>
+          <span class="font-display font-black text-lg sm:text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-200">
+            HÔM NAY ĂN GÌ?
+          </span>
+        </a>
+        <span class="text-xs uppercase font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+          SRS & Architecture Docs v1.2
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="/"
+          class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-500 text-black hover:bg-amber-400 transition-all font-display tracking-wide uppercase"
+        >
+          Trải Nghiệm Web App →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <div class="border-b border-csgo-border bg-gradient-to-b from-csgo-surface to-csgo-bg py-12 px-4 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-semibold mb-4">
+        <span>📜 BÁO CÁO ĐẶC TẢ NGHIỆP VỤ & THIẾT KẾ HỆ THỐNG</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+        Tài Liệu Nghiệp Vụ & Thuật Toán<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+          "Hôm Nay Ăn Gì?" phong cách Mở Hòm CS:GO
+        </span>
+      </h1>
+      <p class="text-slate-400 mt-4 text-base sm:text-lg max-w-3xl leading-relaxed">
+        Phân tích chuyên sâu về cơ chế trò chơi hóa (Gamification), thuật toán phân phối xác suất ngẫu nhiên, mô hình vật lý hãm tốc Bézier 60/120 FPS, và kiến trúc luồng dữ liệu của ứng dụng.
+      </p>
+
+      <!-- Quick Meta Info -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-800 text-xs">
+        <div>
+          <span class="text-slate-500 block">Framework & Build:</span>
+          <span class="font-mono text-slate-200 font-semibold">Vue 3 + Vite + Tailwind v4</span>
+        </div>
+        <div>
+          <span class="text-slate-500 block">Audio Engine:</span>
+          <span class="font-mono text-emerald-400 font-semibold">Web Audio API Synthesizer</span>
+        </div>
+        <div>
+          <span class="text-slate-500 block">Physics Algorithm:</span>
+          <span class="font-mono text-sky-400 font-semibold">Newton-Raphson Cubic Bézier</span>
+        </div>
+        <div>
+          <span class="text-slate-500 block">Deploy & CI/CD:</span>
+          <span class="font-mono text-amber-400 font-semibold">Vercel Edge Global CDN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <div class="max-w-5xl mx-auto px-4 lg:px-8 py-10 space-y-16">
+
+    <!-- Table of Contents -->
+    <nav class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 shadow-xl">
+      <h2 class="text-base font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+        <span>📑</span>
+        <span>Mục Lục Tài Liệu</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-300">
+        <a href="#section-1" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">01.</span> Bối cảnh & Mục tiêu Nghiệp vụ (Problem Statement)
+        </a>
+        <a href="#section-2" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">02.</span> Kiến trúc Tổng quan & Dòng Dữ liệu (Data Flow)
+        </a>
+        <a href="#section-3" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">03.</span> Hệ thống Phẩm cấp & Thuật toán Xác suất
+        </a>
+        <a href="#section-4" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">04.</span> Thuật toán Vật lý Roulette & Bézier Solver
+        </a>
+        <a href="#section-5" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">05.</span> Tổng hợp Âm thanh (Web Audio API) & Haptic
+        </a>
+        <a href="#section-6" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">06.</span> Tích hợp Bản đồ & Hành vi Sau Trúng Thưởng
+        </a>
+        <a href="#section-7" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">07.</span> Quản lý Trạng thái & Cơ chế Lưu trữ
+        </a>
+        <a href="#section-8" class="hover:text-amber-400 hover:translate-x-1 transition-all py-1 flex items-center gap-2">
+          <span class="text-amber-500 font-mono text-xs">08.</span> Quy trình Đóng gói & CI/CD Tự Động
+        </a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1 -->
+    <section id="section-1" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-sm">01</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Bối Cảnh & Mục Tiêu Nghiệp Vụ (Problem Statement)</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-4 leading-relaxed text-sm sm:text-base">
+        <h3 class="font-bold text-white text-base sm:text-lg">1.1. Nỗi đau thực tế (User Pain Point):</h3>
+        <p class="text-slate-300">
+          Câu hỏi <em>"Hôm nay ăn gì?"</em> là một nghịch lý lựa chọn (The Paradox of Choice) phổ biến hàng ngày giữa dân văn phòng, học sinh, sinh viên và các nhóm bạn. Khi có quá nhiều lựa chọn nhưng thiếu yếu tố quyết định, người dùng rơi vào trạng thái <strong>tê liệt phân tích (Analysis Paralysis)</strong>, dẫn đến mất thời gian và giảm trải nghiệm bữa ăn.
+        </p>
+
+        <h3 class="font-bold text-white text-base sm:text-lg pt-2">1.2. Giải pháp Gamification (Trò chơi hóa):</h3>
+        <p class="text-slate-300">
+          Ứng dụng vay mượn cơ chế <strong>Case Opening (Mở hòm)</strong> trứ danh của tựa game bắn súng thể thao điện tử Counter-Strike (CS:GO / CS2):
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-300">
+          <li><strong>Yếu tố bất ngờ & phần thưởng biến đổi (Variable Reward):</strong> Người dùng không biết trước mình sẽ trúng món bình dân hay đại tiệc 5 sao.</li>
+          <li><strong>Cảm giác kịch tính thị giác:</strong> Băng chuyền cuộn ngang chạy chậm dần và kim chỉ dừng suýt soát các ô màu tím, hồng, đỏ, vàng tạo cảm giác hồi hộp tột đỉnh.</li>
+          <li><strong>Cam kết hành động dứt khoát:</strong> Khi kết quả đã được "Hệ thống mở hòm" quyết định, người dùng dễ dàng chấp nhận và chốt thực đơn ngay mà không cần đắn đo suy nghĩ.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section-2" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-mono font-bold flex items-center justify-center text-sm">02</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Kiến Trúc Tổng Quan & Dòng Dữ Liệu (Data Flow)</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-6 text-sm">
+        <p class="text-slate-300 leading-relaxed">
+          Ứng dụng được xây dựng theo mô hình <strong>Single Page Application (SPA)</strong> dựa trên Vue 3 Composition API, tối ưu hóa triệt để để chạy mượt mà ngay trên trình duyệt di động mà không cần backend phụ thuộc.
+        </p>
+
+        <!-- Visual Architecture Diagram Flow -->
+        <div class="bg-csgo-bg border border-csgo-border rounded-xl p-5 font-mono text-xs text-slate-300 space-y-3 overflow-x-auto">
+          <div class="text-amber-400 font-bold mb-2">// SƠ ĐỒ DÒNG DỮ LIỆU CHÍNH (MAIN DATA FLOW PIPELINE)</div>
+          <div class="flex items-center gap-2 whitespace-nowrap">
+            <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">1. Người dùng chọn Hòm</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-blue-900/50 border border-blue-700 text-blue-300">Default/Custom Cases Store</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-6">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-amber-950 border border-amber-600 text-amber-300">2. Nhấn "MỞ HÒM"</span>
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-purple-900/50 border border-purple-600 text-purple-300">Tính toán Trúng Thưởng (Weighted Odds)</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-12">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">3. Sinh dải Strip (75 items, Winner @ index 62)</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-16">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-emerald-950 border border-emerald-600 text-emerald-300">4. Double rAF + Kích hoạt GPU Bezier Transition (5.5s)</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-20">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700">5. Newton-Raphson Solver: Tính nhịp Tick + Haptic (Zero Reflow)</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-24">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-red-950 border border-red-600 text-red-300">6. Dừng vòng quay + Phát Win Audio + Pháo hoa Confetti</span>
+          </div>
+          <div class="flex items-center gap-2 whitespace-nowrap pl-28">
+            <span>➔</span>
+            <span class="px-2 py-1 rounded bg-sky-950 border border-sky-600 text-sky-300">7. Bật Inspect Modal + Lưu LocalStorage + Chỉ đường Google Maps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section-3" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-mono font-bold flex items-center justify-center text-sm">03</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Hệ Thống Phẩm Cấp & Thuật Toán Xác Suất (Probability Logic)</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-6 text-sm">
+        <p class="text-slate-300 leading-relaxed">
+          Mỗi món ăn trong kho dữ liệu được gán vào 1 trong 7 cấp độ hiếm (Rarity Tiers), mô phỏng chính xác hệ thống skin vũ khí của Valve:
+        </p>
+
+        <!-- Rarity Weights Table -->
+        <div class="overflow-x-auto rounded-xl border border-csgo-border">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-csgo-bg text-slate-400 border-b border-csgo-border font-mono uppercase">
+              <tr>
+                <th class="p-3">Phẩm cấp CS:GO</th>
+                <th class="p-3">Màu sắc</th>
+                <th class="p-3">Tỉ lệ CS:GO (Weight)</th>
+                <th class="p-3">Xác suất ước tính</th>
+                <th class="p-3">Ví dụ món ăn tiêu biểu</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 font-medium">
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-slate-300">Consumer Grade (Trắng)</td>
+                <td class="p-3 text-csgo-consumer">#b0c3d9</td>
+                <td class="p-3 font-mono">45.0</td>
+                <td class="p-3 font-mono text-slate-300">~ 45.0%</td>
+                <td class="p-3 text-slate-400">Cơm bình dân 35k, Mì tôm trứng, Bánh mì pate</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-sky-400">Industrial Grade (Lam nhạt)</td>
+                <td class="p-3 text-csgo-industrial">#5e98d9</td>
+                <td class="p-3 font-mono">28.0</td>
+                <td class="p-3 font-mono text-slate-300">~ 28.0%</td>
+                <td class="p-3 text-slate-400">Phở bò tái nạm, Cơm tấm sườn bì chả, Bún chả</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-blue-400">Mil-Spec (Xanh dương)</td>
+                <td class="p-3 text-csgo-milspec">#4b69ff</td>
+                <td class="p-3 font-mono">15.0</td>
+                <td class="p-3 font-mono text-slate-300">~ 15.0%</td>
+                <td class="p-3 text-slate-400">Bún đậu mắm tôm mẹt to, Cơm gà xối mỡ</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-purple-400">Restricted (Tím)</td>
+                <td class="p-3 text-csgo-restricted">#8847ff</td>
+                <td class="p-3 font-mono">7.0</td>
+                <td class="p-3 font-mono text-slate-300">~ 7.0%</td>
+                <td class="p-3 text-slate-400">Combo Pizza & Mì Ý, Gà rán sốt mật ong</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-pink-400">Classified (Hồng)</td>
+                <td class="p-3 text-csgo-classified">#d32ce6</td>
+                <td class="p-3 font-mono">3.5</td>
+                <td class="p-3 font-mono text-slate-300">~ 3.5%</td>
+                <td class="p-3 text-slate-400">Lẩu Haidilao Tứ Xuyên, Set Nướng Bò K-Pub</td>
+              </tr>
+              <tr class="hover:bg-slate-800/30">
+                <td class="p-3 font-semibold text-red-500">Covert (Đỏ)</td>
+                <td class="p-3 text-csgo-covert">#eb4b4b</td>
+                <td class="p-3 font-mono">1.2</td>
+                <td class="p-3 font-mono text-slate-300">~ 1.2%</td>
+                <td class="p-3 text-slate-400">Cơm Mẹ Nấu (Vô giá), Buffet Tôm Hùm 5 Sao</td>
+              </tr>
+              <tr class="hover:bg-amber-500/10 bg-amber-500/5">
+                <td class="p-3 font-bold text-amber-300">★ Special Rare (Dao Vàng)</td>
+                <td class="p-3 text-csgo-gold">#ffd700</td>
+                <td class="p-3 font-mono text-amber-300">0.3</td>
+                <td class="p-3 font-mono text-amber-300 font-bold">~ 0.3%</td>
+                <td class="p-3 text-amber-200">★ Sếp Bao Ăn 100% ★, Hẹn hò Crush, Giảm cân</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-bold text-white text-base sm:text-lg pt-2">3.2. Cơ chế 2 Chế Độ Quay (Dual Odds Mode):</h3>
+        <ul class="list-disc pl-6 space-y-2 text-slate-300">
+          <li><strong>Chế độ Tỉ lệ CS:GO (Authentic Odds):</strong> Áp dụng thuật toán bốc thăm tích lũy trọng số (Cumulative Distribution Function - CDF). Đồ đỏ và dao vàng cực kỳ hiếm, tạo cảm giác nổ thưởng phấn khích tột độ.</li>
+          <li><strong>Chế độ Tỉ lệ Đều (Fair Mode):</strong> Sử dụng hàm phân phối đều xác suất \(P(i) = \frac{1}{N}\). Mọi món ăn từ mì gói đến tôm hùm đều có cơ hội xuất hiện ngang nhau, thích hợp cho nhóm bạn cần tính công bằng tuyệt đối.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section-4" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm">04</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Thuật Toán Vật Lý Roulette & Bézier Solver (60/120 FPS)</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-5 text-sm">
+        <p class="text-slate-300 leading-relaxed">
+          Phần lớn các web unboxing nghiệp dư bị hiện tượng **khựng, giật khung hình** vì vừa chạy CSS transition vừa ép trình duyệt tính toán lại layout (Forced Reflow) để phát hiện va chạm kim chỉ. Ứng dụng này giải quyết triệt để vấn đề này bằng giải thuật toán học:
+        </p>
+
+        <h3 class="font-bold text-white text-base">4.1. Đường Cong Giảm Tốc Chuẩn CS:GO:</h3>
+        <p class="text-slate-300">
+          Vòng quay chuyển động theo hàm Bézier bậc 3: <code class="text-amber-400 bg-black/40 px-2 py-0.5 rounded">cubic-bezier(0.1, 0.9, 0.2, 1.0)</code> với thời gian quay tiêu chuẩn <strong>5.5 giây</strong> (hoặc 1.5 giây ở chế độ quay nhanh).
+        </p>
+
+        <h3 class="font-bold text-white text-base pt-2">4.2. Bộ Giải Giải Tích Newton-Raphson (Zero Layout Thrashing):</h3>
+        <p class="text-slate-300">
+          Thay vì gọi <code class="text-red-400">getComputedStyle()</code> và <code class="text-red-400">DOMMatrix</code> mỗi 16ms, hàm kiểm tra vị trí sử dụng phương pháp giải tích Newton-Raphson:
+        </p>
+        <div class="bg-csgo-bg border border-csgo-border rounded-xl p-4 font-mono text-xs text-slate-300 overflow-x-auto">
+          <pre><code>// Tính thời gian chuẩn hóa: t ∈ [0, 1]
+const t = Math.min(1, Math.max(0, (currentTime - startTime) / durationMs));
+
+// Giải nghiệm vị trí dựa theo đường cong Bézier xấp xỉ bậc 3:
+const progress = csgoEaseOut(t);
+const currentTranslateX = startX + (endX - startX) * progress;
+
+// Tính chỉ số card đang đi qua kim chỉ tâm:
+const passedDistance = -currentTranslateX + centerPoint - gap;
+const currentCardIdx = Math.floor(passedDistance / stride);
+
+if (currentCardIdx !== lastTickIndex) {
+  lastTickIndex = currentCardIdx;
+  playTick();          // Web Audio API
+  triggerVibrate();    // Haptic
+  triggerNeedleKick(); // Direct DOM class
+}</code></pre>
+        </div>
+
+        <h3 class="font-bold text-white text-base pt-2">4.3. Độ Lệch Ngẫu Nhiên Tự Nhiên (Random Jitter Offset):</h3>
+        <p class="text-slate-300">
+          Món trúng giải nằm ở vị trí index 62 trên dải 75 thẻ. Điểm dừng không nằm cố định ở chính giữa tâm thẻ mà được thêm một lượng lệch ngẫu nhiên:
+        </p>
+        <p class="font-mono text-amber-300 bg-csgo-bg p-3 rounded-xl border border-csgo-border">
+          Jitter = (Math.random() - 0.5) × (cardWidth × 0.65)
+        </p>
+        <p class="text-xs text-slate-400">
+          Độ lệch này mô phỏng chân thực cảm giác trong CS:GO khi mũi tên dừng suýt soát sát mép thẻ vàng hoặc thẻ đỏ, mang lại cảm xúc vỡ òa cho người chơi.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section-5" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-sm">05</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Bộ Tổng Hợp Âm Thanh (Web Audio API) & Haptic Engine</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-300">
+          Toàn bộ âm thanh trong ứng dụng được <strong>tổng hợp toán học theo thời gian thực bằng Web Audio API</strong>, hoàn toàn không sử dụng file mp3 bên ngoài:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-slate-300">
+          <li><strong>Không phụ thuộc mạng:</strong> Hoạt động offline 100%, không lo lỗi mạng hay 404 file âm thanh.</li>
+          <li><strong>Độ trễ 0ms (Zero Latency):</strong> Âm thanh phát ra tức thì ngay khi thẻ đi qua kim chỉ.</li>
+          <li><strong>Tiếng Tick cơ học:</strong> Dao động sóng tam giác (Triangle Wave) với tần số cơ bản 1200Hz - 160Hz kết hợp bộ điều chế biên độ suy giảm hàm mũ (Exponential Gain Ramp).</li>
+          <li><strong>Tiếng mở hòm cơ khí:</strong> Kết hợp giữa sóng Sin trầm 140Hz tạo độ rung nặng và sóng Răng cưa 800Hz mô phỏng tiếng mở khóa kim loại.</li>
+          <li><strong>Hợp âm nổ chiến thắng phân tầng:</strong> Tự động phát hợp âm arpeggio 5 nốt (C5, E5, G5, C6, E6) khi mở trúng Dao Vàng và hợp âm vang đỏ khi trúng Covert.</li>
+          <li><strong>Haptic Vibration Feedback:</strong> Kích hoạt bộ rung xúc giác trên điện thoại di động qua <code class="text-emerald-400">navigator.vibrate(8ms)</code> mỗi nhịp tick và <code class="text-amber-400">[40ms, 50ms, 60ms, 100ms]</code> khi chiến thắng.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section-6" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-pink-500/20 text-pink-400 font-mono font-bold flex items-center justify-center text-sm">06</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Tích Hợp Bản Đồ Google Maps & Trải Nghiệm Sau Trúng Thưởng</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-300">
+          Sau khi vòng quay kết thúc, modal <strong>Inspect Item</strong> sẽ mở ra để người dùng tiến hành đưa ra quyết định thực tế:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="bg-csgo-bg border border-csgo-border rounded-xl p-4 space-y-2">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <span>📍</span> Google Maps Search URL API
+            </h4>
+            <p class="text-xs text-slate-400">
+              Hệ thống làm sạch chuỗi (xóa ký tự meme, lọc chữ đặc biệt) và tạo đường dẫn URI Search:
+            </p>
+            <p class="font-mono text-xs text-sky-400 break-all bg-black/50 p-2 rounded">
+              https://www.google.com/maps/search/?api=1&query=quán+{cleanName}+gần+đây
+            </p>
+            <p class="text-xs text-slate-400">
+              Khi bấm trên điện thoại, máy sẽ tự động gọi ứng dụng Google Maps gốc và định vị các quán đang mở cửa xung quanh.
+            </p>
+          </div>
+
+          <div class="bg-csgo-bg border border-csgo-border rounded-xl p-4 space-y-2">
+            <h4 class="font-bold text-white flex items-center gap-2">
+              <span>🛵</span> ShopeeFood Delivery Integration
+            </h4>
+            <p class="text-xs text-slate-400">
+              Tích hợp đường dẫn tìm kiếm món ăn trực tiếp trên nền tảng giao hàng tận nơi:
+            </p>
+            <p class="font-mono text-xs text-orange-400 break-all bg-black/50 p-2 rounded">
+              https://shopeefood.vn/search?keyword={cleanName}
+            </p>
+            <p class="text-xs text-slate-400">
+              Phù hợp cho những ngày mưa hoặc giờ trưa văn phòng không thể ra ngoài ăn trực tiếp.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="section-7" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 font-mono font-bold flex items-center justify-center text-sm">07</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Cơ Chế Quản Lý Trạng Thái & Lưu Trữ (State Management)</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-300">
+          Toàn bộ dữ liệu của người dùng được duy trì liên tục trên trình duyệt thông qua **Web Storage API (LocalStorage)**:
+        </p>
+        <div class="overflow-x-auto rounded-xl border border-csgo-border">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-csgo-bg text-slate-400 border-b border-csgo-border font-mono">
+              <tr>
+                <th class="p-3">Key LocalStorage</th>
+                <th class="p-3">Kiểu dữ liệu</th>
+                <th class="p-3">Mô tả nghiệp vụ</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/60 font-mono text-xs">
+              <tr>
+                <td class="p-3 text-amber-400">csgo_food_history</td>
+                <td class="p-3 text-slate-300">JSON Array (tối đa 50 phần tử)</td>
+                <td class="p-3 font-sans text-slate-400">Lưu lịch sử các món ăn đã mở trúng kèm thời gian mở, float value và StatTrak.</td>
+              </tr>
+              <tr>
+                <td class="p-3 text-sky-400">csgo_food_custom_dishes</td>
+                <td class="p-3 text-slate-300">JSON Array</td>
+                <td class="p-3 font-sans text-slate-400">Lưu danh sách món ăn do người dùng tự tạo kèm phẩm cấp, emoji và giá tiền.</td>
+              </tr>
+              <tr>
+                <td class="p-3 text-emerald-400">csgo_food_muted</td>
+                <td class="p-3 text-slate-300">Boolean ("true" / "false")</td>
+                <td class="p-3 font-sans text-slate-400">Ghi nhớ trạng thái Bật / Tắt âm thanh của người dùng giữa các phiên truy cập.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="section-8" class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 font-mono font-bold flex items-center justify-center text-sm">08</span>
+        <h2 class="text-2xl font-black text-white tracking-wide">Quy Trình Đóng Gói, CI/CD & Triển Khai Đám Mây</h2>
+      </div>
+
+      <div class="bg-csgo-surface rounded-2xl border border-csgo-border p-6 space-y-4 text-sm leading-relaxed">
+        <p class="text-slate-300">
+          Dự án áp dụng quy trình tự động hóa phát triển phần mềm hiện đại (GitOps / Continuous Deployment):
+        </p>
+        <ol class="list-decimal pl-6 space-y-2 text-slate-300">
+          <li><strong>Môi trường phát triển:</strong> Vite Dev Server với Hot Module Replacement (HMR) tức thì dưới 50ms.</li>
+          <li><strong>Đóng gói sản phẩm:</strong> Lệnh <code class="text-amber-400">vite build</code> biên dịch toàn bộ SFC (Single File Components) thành file HTML, CSS rút gọn và JS chunk nhỏ gọn (kích thước gzip &lt; 60kB).</li>
+          <li><strong>Tự động hóa CI/CD:</strong>
+            <ul class="list-disc pl-6 mt-1 space-y-1 text-slate-400">
+              <li>Mỗi lệnh <code class="text-slate-200">git push origin main</code> kích hoạt Webhook của Vercel.</li>
+              <li>Vercel Runner khởi tạo container Node.js, cài đặt thư viện và chạy đóng gói trong <strong>15–20 giây</strong>.</li>
+              <li>Tự động kích hoạt CDN Edge Cache toàn cầu, cấp phát chứng chỉ SSL/TLS tự động và giữ đường dẫn URL sống vĩnh viễn 24/7.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-csgo-border bg-csgo-surface py-8 px-4 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        🍜 CS:GO Food Unboxing Simulator • Tài Liệu Đặc Tả Kỹ Thuật
+      </div>
+      <div>
+        Hệ thống phát triển bởi Vue 3 & Vite • 100% Client-Side Engine
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
