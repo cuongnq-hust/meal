@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Chakra Petch', 'Rajdhani', sans-serif;
+  }
+}
+
+/* Custom CS:GO Styled Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f131a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3342;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* CSGO Rarity Glow Effects */
+.rarity-glow-consumer {
+  box-shadow: 0 0 15px rgba(176, 195, 217, 0.2);
+}
+.rarity-glow-industrial {
+  box-shadow: 0 0 18px rgba(94, 152, 217, 0.3);
+}
+.rarity-glow-milspec {
+  box-shadow: 0 0 20px rgba(75, 105, 255, 0.35);
+}
+.rarity-glow-restricted {
+  box-shadow: 0 0 22px rgba(136, 71, 255, 0.4);
+}
+.rarity-glow-classified {
+  box-shadow: 0 0 25px rgba(211, 44, 230, 0.45);
+}
+.rarity-glow-covert {
+  box-shadow: 0 0 30px rgba(235, 75, 75, 0.55);
+}
+.rarity-glow-gold {
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.7);
+  animation: goldPulse 2s infinite ease-in-out;
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(255, 215, 0, 0.85), inset 0 0 25px rgba(255, 215, 0, 0.4);
+  }
+}
+
+/* Needle animation for roulette */
+@keyframes needlePulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+.needle-active {
+  animation: needlePulse 0.3s ease-out;
+}
+
+/* CS:GO diagonal stripes background pattern */
+.bg-csgo-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.015),
+    rgba(255, 255, 255, 0.015) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Metallic button sheen */
+.csgo-btn {
+  background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+  border: 1px solid #4a5568;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.csgo-btn:hover {
+  background: linear-gradient(180deg, #374151 0%, #1f2937 100%);
+  border-color: #64748b;
+}
+
+.csgo-btn-primary {
+  background: linear-gradient(180deg, #059669 0%, #047857 100%);
+  border: 1px solid #10b981;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.csgo-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+
+.csgo-btn-gold {
+  background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+  border: 1px solid #f59e0b;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+}
+
+.csgo-btn-gold:hover:not(:disabled) {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.55);
+}
